@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path
-from .views import TwittListView,TwittDetailView,TwittCreateView,TwittUpdateView
+from .views import TwittListView,TwittDetailView,TwittCreateView,TwittUpdateView,TwittDeleteView
 from . import views
 
 
@@ -24,7 +24,8 @@ urlpatterns = [
     path('', TwittListView.as_view(),name='blog-home'),
     path('twitt/<int:pk>', TwittDetailView.as_view(), name='twitt-detail'),
     path('twitt/new/', TwittCreateView.as_view(), name='twitt-create'),
-    path('twitt/<int:pk>/update', TwittUpdateView.as_view(), name='twitt-update'),
+    path('twitt/<int:pk>/update/', TwittUpdateView.as_view(), name='twitt-update'),
+    path('twitt/<int:pk>/delete/', TwittDeleteView.as_view(), name='twitt-delete'),
     path('about/', views.about, name='blog-about'),
 
 ]
